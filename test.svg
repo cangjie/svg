@@ -1,0 +1,149 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="100%" height="100%" version="1.1"  id="root"   xmlns="http://www.w3.org/2000/svg"  >
+    <!--rect id="ret_small" xmlns="http://www.w3.org/2000/svg" width="100" height="100" style="fill:rgb(255,0,0);stroke-width:0; stroke:rgb(0,0,0)"  /-->
+
+
+
+
+
+    <rect  id="ret_big" xmlns="http://www.w3.org/2000/svg" width="300" height="300" style="fill:rgb(0,0,0);stroke-width:0; stroke:rgb(0,0,0)" opacity="0.1" />
+
+    <script type="text/javascript">
+
+
+
+        function init(evt) {
+            var stock_data_json = '{"type":"day", "start_time":"2017-5-23 9:00", "end_time":"2018-5-23 15:00",   "gid" : "600031", "scale_width": "1280", "scale_height": "800",  items:['
+                + '{"item_start_time": "2017-1-20 9:00", "item_end_time" : "2017-1-20 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-1-23 9:00", "item_end_time" : "2017-1-23 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-1-24 9:00", "item_end_time" : "2017-1-24 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-1-25 9:00", "item_end_time" : "2017-1-25 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-1-26 9:00", "item_end_time" : "2017-1-26 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-3 9:00", "item_end_time" : "2017-2-3 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-6 9:00", "item_end_time" : "2017-2-6 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-7 9:00", "item_end_time" : "2017-2-7 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-8 9:00", "item_end_time" : "2017-2-8 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-9 9:00", "item_end_time" : "2017-2-9 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-10 9:00", "item_end_time" : "2017-2-10 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-13 9:00", "item_end_time" : "2017-2-13 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-14 9:00", "item_end_time" : "2017-2-14 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-15 9:00", "item_end_time" : "2017-2-15 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-16 9:00", "item_end_time" : "2017-2-16 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-17 9:00", "item_end_time" : "2017-2-17 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-20 9:00", "item_end_time" : "2017-2-20 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-21 9:00", "item_end_time" : "2017-2-21 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-22 9:00", "item_end_time" : "2017-2-22 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-23 9:00", "item_end_time" : "2017-2-23 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-24 9:00", "item_end_time" : "2017-2-24 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-27 9:00", "item_end_time" : "2017-2-27 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-2-28 9:00", "item_end_time" : "2017-2-28 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-1 9:00", "item_end_time" : "2017-3-1 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-2 9:00", "item_end_time" : "2017-3-2 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-3 9:00", "item_end_time" : "2017-3-3 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-6 9:00", "item_end_time" : "2017-3-6 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-7 9:00", "item_end_time" : "2017-3-7 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-8 9:00", "item_end_time" : "2017-3-8 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-9 9:00", "item_end_time" : "2017-3-9 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-10 9:00", "item_end_time" : "2017-3-10 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-13 9:00", "item_end_time" : "2017-3-13 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-14 9:00", "item_end_time" : "2017-3-14 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-15 9:00", "item_end_time" : "2017-3-15 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-16 9:00", "item_end_time" : "2017-3-16 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-17 9:00", "item_end_time" : "2017-3-17 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-20 9:00", "item_end_time" : "2017-3-20 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-21 9:00", "item_end_time" : "2017-3-21 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-22 9:00", "item_end_time" : "2017-3-22 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-23 9:00", "item_end_time" : "2017-3-23 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-24 9:00", "item_end_time" : "2017-3-24 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-27 9:00", "item_end_time" : "2017-3-27 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-28 9:00", "item_end_time" : "2017-3-28 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-29 9:00", "item_end_time" : "2017-3-29 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-30 9:00", "item_end_time" : "2017-3-30 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-3-31 9:00", "item_end_time" : "2017-3-31 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+                + '{"item_start_time": "2017-4-3 9:00", "item_end_time" : "2017-4-3 15:00", "item_start_price": "7.49" , "item_end_price" : "7.31", "item_hignest_price": "7.54", "item_lowest_price":"7.29"},'
+                + '{"item_start_time": "2017-4-4 9:00", "item_end_time" : "2017-4-4 15:00", "item_start_price": "7.31" , "item_end_price" : "7.21", "item_hignest_price": "7.38", "item_lowest_price":"7.17"},'
+                + '{"item_start_time": "2017-4-5 9:00", "item_end_time" : "2017-4-5 15:00", "item_start_price": "7.68" , "item_end_price" : "7.35", "item_hignest_price": "7.68", "item_lowest_price":"7.3"},'
+                + '{"item_start_time": "2017-4-6 9:00", "item_end_time" : "2017-4-6 15:00", "item_start_price": "7.34" , "item_end_price" : "7.33", "item_hignest_price": "7.42", "item_lowest_price":"7.21"},'
+                + '{"item_start_time": "2017-4-7 9:00", "item_end_time" : "2017-4-7 15:00", "item_start_price": "7.33" , "item_end_price" : "7.25", "item_hignest_price": "7.37", "item_lowest_price":"7.21"},'
+                + '{"item_start_time": "2017-4-10 9:00", "item_end_time" : "2017-4-10 15:00", "item_start_price": "7.26" , "item_end_price" : "7.26", "item_hignest_price": "7.33", "item_lowest_price":"7.22"},'
+                + '{"item_start_time": "2017-4-11 9:00", "item_end_time" : "2017-4-11 15:00", "item_start_price": "7.29" , "item_end_price" : "7.34", "item_hignest_price": "7.41", "item_lowest_price":"7.21"},'
+                + '{"item_start_time": "2017-4-12 9:00", "item_end_time" : "2017-4-12 15:00", "item_start_price": "7.29" , "item_end_price" : "7.09", "item_hignest_price": "7.29", "item_lowest_price":"7.06"},'
+                + '{"item_start_time": "2017-4-13 9:00", "item_end_time" : "2017-4-13 15:00", "item_start_price": "7.02" , "item_end_price" : "7.08", "item_hignest_price": "7.12", "item_lowest_price":"7.04"},'
+                + '{"item_start_time": "2017-4-14 9:00", "item_end_time" : "2017-4-14 15:00", "item_start_price": "7.06" , "item_end_price" : "6.92", "item_hignest_price": "7.13", "item_lowest_price":"6.89"},'
+                + '{"item_start_time": "2017-4-17 9:00", "item_end_time" : "2017-4-17 15:00", "item_start_price": "6.91" , "item_end_price" : "6.81", "item_hignest_price": "6.92", "item_lowest_price":"6.72"},'
+                + '{"item_start_time": "2017-4-18 9:00", "item_end_time" : "2017-4-18 15:00", "item_start_price": "6.88" , "item_end_price" : "6.81", "item_hignest_price": "6.95", "item_lowest_price":"6.77"},'
+                + '{"item_start_time": "2017-4-19 9:00", "item_end_time" : "2017-4-19 15:00", "item_start_price": "6.8" , "item_end_price" : "6.77", "item_hignest_price": "6.85", "item_lowest_price":"6.64"},'
+                + '{"item_start_time": "2017-4-20 9:00", "item_end_time" : "2017-4-20 15:00", "item_start_price": "6.79" , "item_end_price" : "6.83", "item_hignest_price": "6.84", "item_lowest_price":"6.71"},'
+                + '{"item_start_time": "2017-4-21 9:00", "item_end_time" : "2017-4-21 15:00", "item_start_price": "6.87" , "item_end_price" : "6.92", "item_hignest_price": "6.93", "item_lowest_price":"6.87"},'
+                + '{"item_start_time": "2017-4-24 9:00", "item_end_time" : "2017-4-24 15:00", "item_start_price": "6.96" , "item_end_price" : "6.71", "item_hignest_price": "6.96", "item_lowest_price":"6.71"},'
+                + '{"item_start_time": "2017-4-25 9:00", "item_end_time" : "2017-4-25 15:00", "item_start_price": "6.71" , "item_end_price" : "6.81", "item_hignest_price": "6.85", "item_lowest_price":"6.71"},'
+                + '{"item_start_time": "2017-4-26 9:00", "item_end_time" : "2017-4-26 15:00", "item_start_price": "6.8" , "item_end_price" : "7", "item_hignest_price": "6.8", "item_lowest_price":"6.99"},'
+                + '{"item_start_time": "2017-4-27 9:00", "item_end_time" : "2017-4-27 15:00", "item_start_price": "6.97" , "item_end_price" : "7.04", "item_hignest_price": "7.05", "item_lowest_price":"6.87"},'
+                + '{"item_start_time": "2017-4-28 9:00", "item_end_time" : "2017-4-28 15:00", "item_start_price": "7.06" , "item_end_price" : "6.92", "item_hignest_price": "7.1", "item_lowest_price":"7.04"},'
+                + '{"item_start_time": "2017-5-2 9:00", "item_end_time" : "2017-5-2 15:00", "item_start_price": "7" , "item_end_price" : "7.02", "item_hignest_price": "7.1", "item_lowest_price":"6.96"},'
+                + '{"item_start_time": "2017-5-3 9:00", "item_end_time" : "2017-5-3 15:00", "item_start_price": "7.02" , "item_end_price" : "7.18", "item_hignest_price": "7.18", "item_lowest_price":"7.02"},'
+                + '{"item_start_time": "2017-5-4 9:00", "item_end_time" : "2017-5-4 15:00", "item_start_price": "7.1" , "item_end_price" : "7.17", "item_hignest_price": "7.26", "item_lowest_price":"7.1"},'
+                + '{"item_start_time": "2017-5-5 9:00", "item_end_time" : "2017-5-5 15:00", "item_start_price": "7.13" , "item_end_price" : "7", "item_hignest_price": "7.17", "item_lowest_price":"6.92"},'
+                + '{"item_start_time": "2017-5-8 9:00", "item_end_time" : "2017-5-8 15:00", "item_start_price": "6.95" , "item_end_price" : "6.88", "item_hignest_price": "6.95", "item_lowest_price":"6.71"},'
+                + '{"item_start_time": "2017-5-9 9:00", "item_end_time" : "2017-5-9 15:00", "item_start_price": "6.84" , "item_end_price" : "6.83", "item_hignest_price": "6.88", "item_lowest_price":"6.79"},'
+                + '{"item_start_time": "2017-5-10 9:00", "item_end_time" : "2017-5-10 15:00", "item_start_price": "6.83" , "item_end_price" : "6.62", "item_hignest_price": "6.88", "item_lowest_price":"6.6"},'
+                + '{"item_start_time": "2017-5-11 9:00", "item_end_time" : "2017-5-11 15:00", "item_start_price": "6.6" , "item_end_price" : "6.6", "item_hignest_price": "6.75", "item_lowest_price":"6.43"},'
+                + '{"item_start_time": "2017-5-12 9:00", "item_end_time" : "2017-5-12 15:00", "item_start_price": "6.6" , "item_end_price" : "6.67", "item_hignest_price": "6.71", "item_lowest_price":"6.6"},'
+                + '{"item_start_time": "2017-5-15 9:00", "item_end_time" : "2017-5-15 15:00", "item_start_price": "6.79" , "item_end_price" : "6.71", "item_hignest_price": "6.83", "item_lowest_price":"6.67"},'
+                + '{"item_start_time": "2017-5-16 9:00", "item_end_time" : "2017-5-16 15:00", "item_start_price": "6.68" , "item_end_price" : "6.75", "item_hignest_price": "6.76", "item_lowest_price":"6.51"},'
+                + '{"item_start_time": "2017-5-17 9:00", "item_end_time" : "2017-5-17 15:00", "item_start_price": "6.76" , "item_end_price" : "6.75", "item_hignest_price": "6.81", "item_lowest_price":"6.74"},'
+                + '{"item_start_time": "2017-5-18 9:00", "item_end_time" : "2017-5-18 15:00", "item_start_price": "6.68" , "item_end_price" : "6.73", "item_hignest_price": "6.81", "item_lowest_price":"6.63"},'
+                + '{"item_start_time": "2017-5-19 9:00", "item_end_time" : "2017-5-19 15:00", "item_start_price": "6.71" , "item_end_price" : "6.7", "item_hignest_price": "6.79", "item_lowest_price":"6.5"},'
+                + '{"item_start_time": "2017-5-22 9:00", "item_end_time" : "2017-5-22 15:00", "item_start_price": "6.7" , "item_end_price" : "6.7", "item_hignest_price": "6.83", "item_lowest_price":"6.66"},'
+                + '{"item_start_time": "2017-5-23 9:00", "item_end_time" : "2017-5-23 15:00", "item_start_price": "6.67" , "item_end_price" : "6.7", "item_hignest_price": "6.71", "item_lowest_price":"6.55"},'
+                + '{"item_start_time": "2017-5-24 9:00", "item_end_time" : "2017-5-24 15:00", "item_start_price": "6.66" , "item_end_price" : "5.69", "item_hignest_price": "6.7", "item_lowest_price":"6.58"},'
+                + '{"item_start_time": "2017-5-25 9:00", "item_end_time" : "2017-5-25 15:00", "item_start_price": "6.69" , "item_end_price" : "6.84", "item_hignest_price": "6.88", "item_lowest_price":"6.66"},'
+                + '{"item_start_time": "2017-5-26 9:00", "item_end_time" : "2017-5-26 15:00", "item_start_price": "6.81" , "item_end_price" : "6.91", "item_hignest_price": "6.99", "item_lowest_price":"6.81"},'
+
+                + ']}';
+
+        var stock_data = eval('(' + stock_data_json + ')');
+
+
+        var ret_big = document.getElementById("ret_big");
+        ret_big.attributes["opacity"].value = "0.5";
+
+
+
+        var root = evt.currentTarget.parentElement;
+
+        var xmlns = "http://www.w3.org/2000/svg";
+
+        var node = document.createElementNS(xmlns, "rect");
+
+        //node.id = "ret_small";
+        //node.xmlns = "http://www.w3.org/2000/svg";
+        //node.width = "100";
+        //node.height = "100";
+        //node.style = "fill:rgb(255,0,0);stroke-width:0; stroke:rgb(0,0,0)";
+        //node.style.fill = "rgb(255,0,0)";
+
+        node.setAttributeNS(null, "id", "ret_small");
+
+        node.setAttributeNS(null, "width", "100");
+        node.setAttributeNS(null, "height", "100");
+        node.setAttributeNS(null, "opacity", "1");
+        node.setAttributeNS(null, "x", "0");
+        node.setAttributeNS(null, "y", "0");
+        var styleAttr = document.createAttribute("style");
+        styleAttr.nodeValue = "fill:rgb(255,0,0);stroke-width:0; stroke:rgb(0,0,0); display:block";
+
+        node.setAttributeNode(styleAttr);
+
+        //node.setAttribute("style", "fill:rgb(255,0,0);stroke-width:0; stroke:rgb(0,0,0)");
+        //node.getAttribute("style").createAttributeNode("fill");
+
+        root.appendChild(node);
+
+        var ret_small = document.getElementById("ret_small");
+
+        }
+    </script>
+    <rect id="ret_small_m" onclick="init(evt)" xmlns="http://www.w3.org/2000/svg" width="100" height="100" style="fill:rgb(255,255,0);stroke-width:0; stroke:rgb(0,0,0); "  x="100" />
+
+</svg>

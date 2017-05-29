@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/svg.js" ></script>
+</head>
+<body onresize="init()" onload="init()" >
+    <svg id="svg" version="1.1"   xmlns="http://www.w3.org/2000/svg" style="border:1px solid black;"></svg>
+</body>
+<script type="text/javascript" >
+    var svg = document.getElementById("svg");
+    function init() {
+
+        svg.style.width = (window.innerWidth-25).toString() + "px";
+        svg.style.height = (window.innerHeight-25).toString() + "px";
+        var ret_node = createRecNode("test_rec", 10, 10, 100, 100, "rgb(0,255,0)", "1");
+        ret_node.onclick = function (evt) {
+            alert(evt);
+        }
+        //svg.appendChild(ret_node);
+
+        var line_node1 = createLine("lt1", 2, 0, 2, 10, "1px", "rgb(255,0,0)");
+        svg.appendChild(line_node1);
+
+        var line_node = createLine("line_test", 2, 10, 2, 25, "3px", "rgb(255,0,0)");
+        svg.appendChild(line_node);
+
+        var lin = createLine("ll", 8, 25, 12, 25, "1px", "rgb(0,0,0)");
+        svg.appendChild(lin);
+
+        line_node.onclick = function (evt) {
+            alert(evt);
+        }
+    }
+
+</script>
+</html>
