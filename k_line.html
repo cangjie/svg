@@ -10,9 +10,11 @@
 <svg id="svg" version="1.1"   xmlns="http://www.w3.org/2000/svg" style="border:1px solid black;"></svg>
 </body>
 <script type="text/javascript" >
-    var svg = document.getElementById("svg");
+
 
     var stock_data_json = '{"type":"day", "start_time":"2017-5-23 9:00", "end_time":"2018-5-23 15:00",   "gid" : "600031", "scale_width": "1280", "scale_height": "800",  items:['
+
+        /*
         + '{"item_start_time": "2017-1-20 9:00", "item_end_time" : "2017-1-20 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
         + '{"item_start_time": "2017-1-23 9:00", "item_end_time" : "2017-1-23 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
         + '{"item_start_time": "2017-1-24 9:00", "item_end_time" : "2017-1-24 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
@@ -59,6 +61,8 @@
         + '{"item_start_time": "2017-3-29 9:00", "item_end_time" : "2017-3-29 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
         + '{"item_start_time": "2017-3-30 9:00", "item_end_time" : "2017-3-30 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
         + '{"item_start_time": "2017-3-31 9:00", "item_end_time" : "2017-3-31 15:00", "item_start_price": "5.38" , "item_end_price" : "5.57", "item_hignest_price": "5.6", "item_lowest_price":"5.30"},'
+            */
+
         + '{"item_start_time": "2017-4-3 9:00", "item_end_time" : "2017-4-3 15:00", "item_start_price": "7.49" , "item_end_price" : "7.31", "item_hignest_price": "7.54", "item_lowest_price":"7.29"},'
         + '{"item_start_time": "2017-4-4 9:00", "item_end_time" : "2017-4-4 15:00", "item_start_price": "7.31" , "item_end_price" : "7.21", "item_hignest_price": "7.38", "item_lowest_price":"7.17"},'
         + '{"item_start_time": "2017-4-5 9:00", "item_end_time" : "2017-4-5 15:00", "item_start_price": "7.68" , "item_end_price" : "7.35", "item_hignest_price": "7.68", "item_lowest_price":"7.3"},'
@@ -95,13 +99,15 @@
         + '{"item_start_time": "2017-5-19 9:00", "item_end_time" : "2017-5-19 15:00", "item_start_price": "6.71" , "item_end_price" : "6.7", "item_hignest_price": "6.79", "item_lowest_price":"6.5"},'
         + '{"item_start_time": "2017-5-22 9:00", "item_end_time" : "2017-5-22 15:00", "item_start_price": "6.7" , "item_end_price" : "6.7", "item_hignest_price": "6.83", "item_lowest_price":"6.66"},'
         + '{"item_start_time": "2017-5-23 9:00", "item_end_time" : "2017-5-23 15:00", "item_start_price": "6.67" , "item_end_price" : "6.7", "item_hignest_price": "6.71", "item_lowest_price":"6.55"},'
-        + '{"item_start_time": "2017-5-24 9:00", "item_end_time" : "2017-5-24 15:00", "item_start_price": "6.66" , "item_end_price" : "5.69", "item_hignest_price": "6.7", "item_lowest_price":"6.58"},'
+        + '{"item_start_time": "2017-5-24 9:00", "item_end_time" : "2017-5-24 15:00", "item_start_price": "6.66" , "item_end_price" : "6.69", "item_hignest_price": "6.7", "item_lowest_price":"6.58"},'
         + '{"item_start_time": "2017-5-25 9:00", "item_end_time" : "2017-5-25 15:00", "item_start_price": "6.69" , "item_end_price" : "6.84", "item_hignest_price": "6.88", "item_lowest_price":"6.66"},'
         + '{"item_start_time": "2017-5-26 9:00", "item_end_time" : "2017-5-26 15:00", "item_start_price": "6.81" , "item_end_price" : "6.91", "item_hignest_price": "6.99", "item_lowest_price":"6.81"},'
 
         + ']}';
 
     var stock_data = eval('(' + stock_data_json + ')');
+
+    var svg = document.getElementById("svg");
 
     var min_k_line_width = 5;
 
@@ -128,24 +134,25 @@
     var stock_min_price = 0;
 
     function init() {
-
         svg.innerHTML = "";
-
+        //-25是为了保证svg图不出窗口，不出现滚动条。
         var svg_width = window.innerWidth-25;
         var svg_height = window.innerHeight-25;
         svg.style.width = svg_width;
         svg.style.height = svg_height;
-        k_line_map_width = svg_width - 50;
-        k_line_map_height = svg_height - 50 ;
-        k_line_map_x = 0;
-        k_line_map_y = 25;
-        k_line_max_count_in_map = parseInt(k_line_map_width / min_k_line_width);
-        if (stock_data.items.count > k_line_max_count_in_map)
+
+
+        //设定K线图本身的宽和高，缩进的地方是留白，填写坐标用。
+        k_line_map_width = svg_width - 150;
+        k_line_map_height = svg_height - 50;
+
+        k_line_max_count_in_map = parseInt(k_line_map_width / min_k_line_width) - 1;
+        if (stock_data.items.length > k_line_max_count_in_map)
         {
             k_line_count_in_map = k_line_max_count_in_map;
         }
         else{
-            k_line_count_in_map = parseInt(k_line_max_count_in_map * (stock_data.items.length/k_line_max_count_in_map));
+            k_line_count_in_map = stock_data.items.length;
         }
         stock_data_end_index = stock_data.items.length - 1;
 
@@ -153,70 +160,100 @@
 
         k_line_width = parseInt(min_k_line_width * (k_line_max_count_in_map / k_line_count_in_map));
 
+        //K线图在整个SVG图当中的位置，当然k线图的宽高，都要小于SVG的宽高，缩进的地方是留白，填写坐标用。
+        k_line_map_x = parseInt(k_line_width/2);
+        k_line_map_y = 25;
+
+
         stock_max_price = get_max_price(stock_data.items, stock_data_start_index, stock_data_end_index);
 
         stock_min_price = get_min_price(stock_data.items, stock_data_start_index, stock_data_end_index)
 
         var line_min = createLine("line_min", 0, get_y_value(stock_min_price),
-            k_line_map_width, get_y_value(stock_min_price),
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2), get_y_value(stock_min_price),
             "1px", "rgb(255,0,0)");
         svg.appendChild(line_min);
 
         var line_382 = createLine("line_382", 0, get_y_value((stock_max_price - stock_min_price) * 0.382+stock_min_price),
-            k_line_map_width, get_y_value((stock_max_price - stock_min_price) * 0.382+ stock_min_price),
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2), get_y_value((stock_max_price - stock_min_price) * 0.382+ stock_min_price),
             "1px", "rgb(255,0,0)");
         svg.appendChild(line_382);
 
         var line_half = createLine("line_half", 0, get_y_value((stock_max_price - stock_min_price) * 0.5+stock_min_price),
-            k_line_map_width, get_y_value((stock_max_price - stock_min_price) * 0.5+ stock_min_price),
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2), get_y_value((stock_max_price - stock_min_price) * 0.5+ stock_min_price),
             "1px", "rgb(255,0,0)");
         svg.appendChild(line_half);
 
         var line_618 = createLine("line_618", 0, get_y_value((stock_max_price - stock_min_price) * 0.618+stock_min_price),
-            k_line_map_width, get_y_value((stock_max_price - stock_min_price) * 0.618+ stock_min_price),
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2), get_y_value((stock_max_price - stock_min_price) * 0.618+ stock_min_price),
             "1px", "rgb(255,0,0)");
         svg.appendChild(line_618);
 
         var line_max = createLine("line_max", 0, get_y_value(stock_max_price),
-            k_line_map_width, get_y_value(stock_max_price),
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2), get_y_value(stock_max_price),
             "1px", "rgb(255,0,0)");
         svg.appendChild(line_max);
 
         for(var i = stock_data_end_index; i >= stock_data_start_index && i >=0 ; i--) {
-            var line_k = createLine("k_" + i.toString(), get_x_value(i), 250, get_x_value(i), 550, "1px", "rgb(255,0,0)");
-            svg.appendChild(line_k);
+            //var line_k = createLine("k_" + i.toString(), get_x_value(i), 250, get_x_value(i), 550, "1px", "rgb(255,0,0)");
+            //svg.appendChild(line_k);
+            draw_k_line(i, stock_data.items[i].item_start_price, stock_data.items[i].item_end_price,
+                stock_data.items[i].item_hignest_price, stock_data.items[i].item_lowest_price);
         }
 
-        /*
-        var ret_node = createRecNode("test_rec", 10, 10, 100, 100, "rgb(0,255,0)", "1");
-        ret_node.onclick = function (evt) {
-            alert(evt);
-        }
-        svg.appendChild(ret_node);
-
-        var line_node1 = createLine("lt1", 2, 0, 2, 10, "1px", "rgb(255,0,0)");
-        svg.appendChild(line_node1);
-
-        var line_node = createLine("line_test", 2, 10, 2, 25, "3px", "rgb(255,0,0)");
-        svg.appendChild(line_node);
-
-        var lin = createLine("ll", 8, 25, 12, 25, "1px", "rgb(0,0,0)");
-        svg.appendChild(lin);
-
-        line_node.onclick = function (evt) {
-            alert(evt);
-        }*/
     }
 
     function get_y_value(price) {
-        return y_value = parseInt(k_line_map_y
-            + (k_line_map_height * (stock_max_price - price) / (stock_max_price - stock_min_price)));
+        return parseInt(k_line_map_y + k_line_map_height * (1 - (price - stock_min_price)/(stock_max_price - stock_min_price)));
+        //return y_value = parseInt(k_line_map_y
+         //   + (k_line_map_height * (stock_max_price - price) / (stock_max_price - stock_min_price)));
 
     }
 
     function get_x_value(item_index) {
         return parseInt((k_line_map_x + k_line_map_width)
             - k_line_map_width * (stock_data_end_index - item_index)/(stock_data_end_index - stock_data_start_index));
+    }
+
+    function draw_k_line(item_index, start_price, end_price, highest_price, lowest_price) {
+        var k_line_color = "rgb(255,0,0)";
+        if (end_price < start_price) {
+            color = "rgb(0,255,0)";
+        }
+        else if (end_price == start_price ) {
+            color = "rgb(100,100,100)";
+        }
+        else {
+            color = "rgb(255,0,0)";
+        }
+
+        var x = get_x_value(item_index);
+
+        var upper_limit = Math.max(start_price, end_price);
+        var lower_limit = Math.min(start_price, end_price);
+
+        if (highest_price > upper_limit) {
+            var upper_shaddow_line = createLine("shaddow_upper_" + item_index.toString(), x, get_y_value(highest_price), x, get_y_value(upper_limit), "1px", color);
+            svg.appendChild(upper_shaddow_line);
+        }
+
+        if (upper_limit == lower_limit){
+            var k_line = createLine("k_" + item_index.toString(), x, get_y_value(upper_limit)-1, x, get_y_value(lower_limit)+1,
+                (k_line_width-1).toString() + "px", color);
+            svg.appendChild(k_line);
+        }
+        else {
+            var k_line = createLine("k_" + item_index.toString(), x, get_y_value(upper_limit), x, get_y_value(lower_limit),
+                (k_line_width-1).toString() + "px", color);
+            svg.appendChild(k_line);
+        }
+
+
+
+        if (lowest_price < lower_limit) {
+            var lower_shaddow_line = createLine("shaddow_lower_" + item_index, x, get_y_value(lower_limit), x, get_y_value(lowest_price), "1px", color);
+            svg.appendChild(lower_shaddow_line);
+        }
     }
 
 </script>
