@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="text/javascript" src="js/svg.js" ></script>
+    <script type="text/javascript" src="js/stock.js" ></script>
 </head>
 <body onresize="init()" onload="init()" >
-    <svg id="svg" version="1.1"   xmlns="http://www.w3.org/2000/svg" style="border:1px solid black;"></svg>
+<svg id="svg" version="1.1"   xmlns="http://www.w3.org/2000/svg" style="border:1px solid black;"></svg>
 </body>
 <script type="text/javascript" >
     var svg = document.getElementById("svg");
@@ -102,17 +103,86 @@
 
     var stock_data = eval('(' + stock_data_json + ')');
 
+    var min_k_line_width = 5;
 
+    var k_line_width = min_k_line_width;
+
+    var k_line_map_width = 0;
+
+    var k_line_map_height = 0;
+
+    var k_line_map_x = 0;
+
+    var k_line_map_y = 0;
+
+    var stock_data_start_index = 0;
+
+    var stock_data_end_index = 0;
+
+    var k_line_max_count_in_map = 0;
+
+    var k_line_count_in_map = 0;
+
+    var stock_max_price = 0;
+
+    var stock_min_price = 0;
 
     function init() {
 
-        svg.style.width = (window.innerWidth-25).toString() + "px";
-        svg.style.height = (window.innerHeight-25).toString() + "px";
+        svg.style.width = (window.innerWidth-25);
+        svg.style.height = (window.innerHeight-25);
+        k_line_map_width = window.innerWidth-25 - 50;
+        k_line_map_height = window.innerHeight-25 - 25;
+        k_line_map_x = 0;
+        k_line_map_y = window.innerHeight-25 - (window.innerHeight-25 - 25);
+        k_line_max_count_in_map = parseInt(k_line_map_width / min_k_line_width);
+        if (stock_data.items.count > k_line_max_count_in_map)
+        {
+            k_line_count_in_map = k_line_max_count_in_map;
+        }
+        else{
+            k_line_count_in_map = parseInt(k_line_max_count_in_map * (stock_data.items.length/k_line_max_count_in_map));
+        }
+        stock_data_end_index = stock_data.items.length - 1;
+
+        stock_data_start_index = stock_data_end_index + 1 - k_line_count_in_map;
+
+        k_line_width = parseInt(min_k_line_width * (k_line_max_count_in_map / k_line_count_in_map));
+
+        stock_max_price = get_max_price(stock_data.items, stock_data_start_index, stock_data_end_index);
+
+        stock_min_price = get_min_price(stock_data.items, stock_data_start_index, stock_data_end_index)
+
+        var line_min = createLine("line_min", 0, get_y_value(stock_min_price),
+            k_line_map_width, get_y_value(stock_min_price),
+            "1px", "rgb(255,0,0)");
+        svg.appendChild(line_min);
+
+        var line_382 = createLine("line_382", 0, get_y_value((stock_max_price - stock_min_price) * 0.382+stock_min_price),
+            k_line_map_width, get_y_value((stock_max_price - stock_min_price) * 0.382+ stock_min_price),
+            "1px", "rgb(255,0,0)");
+        svg.appendChild(line_382);
+
+        var line_half = createLine("line_half", 0, get_y_value((stock_max_price - stock_min_price) * 0.5+stock_min_price),
+            k_line_map_width, get_y_value((stock_max_price - stock_min_price) * 0.5+ stock_min_price),
+            "1px", "rgb(255,0,0)");
+        svg.appendChild(line_half);
+
+        var line_618 = createLine("line_618", 0, get_y_value((stock_max_price - stock_min_price) * 0.618+stock_min_price),
+            k_line_map_width, get_y_value((stock_max_price - stock_min_price) * 0.618+ stock_min_price),
+            "1px", "rgb(255,0,0)");
+        svg.appendChild(line_618);
+
+        var line_max = createLine("line_max", 0, get_y_value(stock_max_price),
+            k_line_map_width, get_y_value(stock_max_price),
+            "1px", "rgb(255,0,0)");
+        svg.appendChild(line_max);
+        /*
         var ret_node = createRecNode("test_rec", 10, 10, 100, 100, "rgb(0,255,0)", "1");
         ret_node.onclick = function (evt) {
             alert(evt);
         }
-        //svg.appendChild(ret_node);
+        svg.appendChild(ret_node);
 
         var line_node1 = createLine("lt1", 2, 0, 2, 10, "1px", "rgb(255,0,0)");
         svg.appendChild(line_node1);
@@ -125,15 +195,18 @@
 
         line_node.onclick = function (evt) {
             alert(evt);
-        }
+        }*/
     }
 
     function get_y_value(price) {
+        return y_value = parseInt(k_line_map_y
+            + (k_line_map_height * (stock_max_price - price) / (stock_max_price - stock_min_price)));
 
     }
 
     function get_x_value(item_index) {
-
+        return parseInt((k_line_map_x + k_line_map_width)
+            - k_line_map_width * (stock_data_end_index - item_index)/(stock_data_end_index - stock_data_start_index));
     }
 
 </script>
