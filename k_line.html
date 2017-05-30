@@ -129,12 +129,16 @@
 
     function init() {
 
-        svg.style.width = (window.innerWidth-25);
-        svg.style.height = (window.innerHeight-25);
-        k_line_map_width = window.innerWidth-25 - 50;
-        k_line_map_height = window.innerHeight-25 - 25;
+        svg.innerHTML = "";
+
+        var svg_width = window.innerWidth-25;
+        var svg_height = window.innerHeight-25;
+        svg.style.width = svg_width;
+        svg.style.height = svg_height;
+        k_line_map_width = svg_width - 50;
+        k_line_map_height = svg_height - 50 ;
         k_line_map_x = 0;
-        k_line_map_y = window.innerHeight-25 - (window.innerHeight-25 - 25);
+        k_line_map_y = 25;
         k_line_max_count_in_map = parseInt(k_line_map_width / min_k_line_width);
         if (stock_data.items.count > k_line_max_count_in_map)
         {
@@ -177,6 +181,12 @@
             k_line_map_width, get_y_value(stock_max_price),
             "1px", "rgb(255,0,0)");
         svg.appendChild(line_max);
+
+        for(var i = stock_data_end_index; i >= stock_data_start_index && i >=0 ; i--) {
+            var line_k = createLine("k_" + i.toString(), get_x_value(i), 250, get_x_value(i), 550, "1px", "rgb(255,0,0)");
+            svg.appendChild(line_k);
+        }
+
         /*
         var ret_node = createRecNode("test_rec", 10, 10, 100, 100, "rgb(0,255,0)", "1");
         ret_node.onclick = function (evt) {
