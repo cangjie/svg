@@ -174,29 +174,74 @@
             "1px", "rgb(255,0,0)");
         svg.appendChild(line_min);
 
+        var text_min = createTextBox("txt_min", k_line_map_width + k_line_map_x + parseInt(k_line_width/2) + 10,
+            get_y_value(stock_min_price),  stock_min_price.toString(), "15", "rgb(255,0,0)");
+        svg.appendChild(text_min);
+
+        var line_191 = createLine("line_191", 0, get_y_value((stock_max_price - stock_min_price) * 0.191 + stock_min_price),
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2), get_y_value((stock_max_price - stock_min_price) * 0.191+ stock_min_price),
+            "1px", "rgb(255,0,0)");
+        svg.appendChild(line_191);
+
+        var text_191 = createTextBox("txt_191",
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2) + 10, get_y_value((stock_max_price - stock_min_price) * 0.191+ stock_min_price),
+            "19.1% " + (Math.round(((stock_max_price - stock_min_price) * 0.191+ stock_min_price)*100)/100).toString(), "15", "rgb(255,0,0)");
+        svg.appendChild(text_191);
+
         var line_382 = createLine("line_382", 0, get_y_value((stock_max_price - stock_min_price) * 0.382+stock_min_price),
             k_line_map_width + k_line_map_x + parseInt(k_line_width/2), get_y_value((stock_max_price - stock_min_price) * 0.382+ stock_min_price),
             "1px", "rgb(255,0,0)");
         svg.appendChild(line_382);
+
+        var text_382 = createTextBox("txt_382",
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2) + 10, get_y_value((stock_max_price - stock_min_price) * 0.382+ stock_min_price),
+            "38.2% " + (Math.round(((stock_max_price - stock_min_price) * 0.382+ stock_min_price)*100)/100).toString(), "15", "rgb(255,0,0)");
+        svg.appendChild(text_382);
 
         var line_half = createLine("line_half", 0, get_y_value((stock_max_price - stock_min_price) * 0.5+stock_min_price),
             k_line_map_width + k_line_map_x + parseInt(k_line_width/2), get_y_value((stock_max_price - stock_min_price) * 0.5+ stock_min_price),
             "1px", "rgb(255,0,0)");
         svg.appendChild(line_half);
 
+        var text_50 = createTextBox("txt_50",
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2) + 10, get_y_value((stock_max_price - stock_min_price) * 0.50+ stock_min_price),
+            "50% " + (Math.round(((stock_max_price - stock_min_price) * 0.50+ stock_min_price)*100)/100).toString(), "15", "rgb(255,0,0)");
+        svg.appendChild(text_50);
+
+
         var line_618 = createLine("line_618", 0, get_y_value((stock_max_price - stock_min_price) * 0.618+stock_min_price),
             k_line_map_width + k_line_map_x + parseInt(k_line_width/2), get_y_value((stock_max_price - stock_min_price) * 0.618+ stock_min_price),
             "1px", "rgb(255,0,0)");
         svg.appendChild(line_618);
+
+        var text_618 = createTextBox("txt_618",
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2)+10, get_y_value((stock_max_price - stock_min_price) * 0.618+ stock_min_price),
+            "61.8% " + (Math.round(((stock_max_price - stock_min_price) * 0.618+ stock_min_price)*100)/100).toString(), "15", "rgb(255,0,0)");
+        svg.appendChild(text_618);
+
+        var line_809 = createLine("line_809", 0, get_y_value((stock_max_price - stock_min_price) * 0.809+stock_min_price),
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2), get_y_value((stock_max_price - stock_min_price) * 0.809+ stock_min_price),
+            "1px", "rgb(255,0,0)");
+        svg.appendChild(line_809);
+
+        var text_809 = createTextBox("txt_809",
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2) + 10, get_y_value((stock_max_price - stock_min_price) * 0.809+ stock_min_price),
+            "80.9% " + (Math.round(((stock_max_price - stock_min_price) * 0.809+ stock_min_price)*100)/100).toString(), "15", "rgb(255,0,0)");
+        svg.appendChild(text_809);
 
         var line_max = createLine("line_max", 0, get_y_value(stock_max_price),
             k_line_map_width + k_line_map_x + parseInt(k_line_width/2), get_y_value(stock_max_price),
             "1px", "rgb(255,0,0)");
         svg.appendChild(line_max);
 
+        var text_max = createTextBox("txt_max",
+            k_line_map_width + k_line_map_x + parseInt(k_line_width/2) + 10, get_y_value((stock_max_price - stock_min_price) + stock_min_price),
+            (Math.round(((stock_max_price - stock_min_price) + stock_min_price)*100)/100).toString(), "15", "rgb(255,0,0)");
+        svg.appendChild(text_max);
+
+
+
         for(var i = stock_data_end_index; i >= stock_data_start_index && i >=0 ; i--) {
-            //var line_k = createLine("k_" + i.toString(), get_x_value(i), 250, get_x_value(i), 550, "1px", "rgb(255,0,0)");
-            //svg.appendChild(line_k);
             draw_k_line(i, stock_data.items[i].item_start_price, stock_data.items[i].item_end_price,
                 stock_data.items[i].item_hignest_price, stock_data.items[i].item_lowest_price);
         }
@@ -205,9 +250,6 @@
 
     function get_y_value(price) {
         return parseInt(k_line_map_y + k_line_map_height * (1 - (price - stock_min_price)/(stock_max_price - stock_min_price)));
-        //return y_value = parseInt(k_line_map_y
-         //   + (k_line_map_height * (stock_max_price - price) / (stock_max_price - stock_min_price)));
-
     }
 
     function get_x_value(item_index) {

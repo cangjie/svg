@@ -38,3 +38,15 @@ function createLine(id, x1, y1, x2, y2, thick, color) {
     node.setAttributeNode(styleAttr);
     return node;
 }
+
+function createTextBox(id, x, y, text, font_size, color) {
+    var node = document.createElementNS(xmlns, "text");
+    node.setAttributeNS(null, "id", id);
+    node.setAttributeNS(null, "x", x.toString());
+    node.setAttributeNS(null, "y", y.toString());
+    var styleAttr = document.createAttribute("style");
+    styleAttr.nodeValue = "font-size:" + font_size + ";fill:" + color;
+    node.setAttributeNode(styleAttr);
+    node.textContent = text;
+    return node;
+}
