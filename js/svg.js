@@ -39,6 +39,19 @@ function createLine(id, x1, y1, x2, y2, thick, color) {
     return node;
 }
 
+function createLine(id, x1, y1, x2, y2, thick, color, dash_array) {
+    var node = document.createElementNS(xmlns, "line");
+    node.setAttributeNS(null, "id", id);
+    node.setAttributeNS(null, "x1", x1);
+    node.setAttributeNS(null, "y1", y1);
+    node.setAttributeNS(null, "x2", x2);
+    node.setAttributeNS(null, "y2", y2);
+    var styleAttr = document.createAttribute("style");
+    styleAttr.nodeValue = "stroke:" + color + "; stroke-width:" + thick + "; stroke-dasharray:" + dash_array;
+    node.setAttributeNode(styleAttr);
+    return node;
+}
+
 function createTextBox(id, x, y, text, font_size, color) {
     var node = document.createElementNS(xmlns, "text");
     node.setAttributeNS(null, "id", id);

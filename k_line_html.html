@@ -108,10 +108,28 @@
 
         svg.style.width = (window.innerWidth-25).toString() + "px";
         svg.style.height = (window.innerHeight-25).toString() + "px";
+
+        svg.onclick = function (evt) {
+
+            //alert("aa");
+
+        };
+
+
+        document.onmousedown = function (evt) {
+            svg.style.backgroundColor = "rgb(255,0,0)";
+        };
+
+        document.onmouseup = function(evt) {
+            //svg.style.backgroundColor = "rgb(255,255,255)";
+        }
+
+
+
         var ret_node = createRecNode("test_rec", 10, 10, 100, 100, "rgb(0,255,0)", "1");
         ret_node.onclick = function (evt) {
             alert(evt);
-        }
+        };
         //svg.appendChild(ret_node);
 
         var line_node1 = createLine("lt1", 2, 0, 2, 10, "1px", "rgb(255,0,0)");
