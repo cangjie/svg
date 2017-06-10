@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e347225-2848-45a9-a72c-5429a1684a04" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/svg.js" afterPath="$PROJECT_DIR$/js/svg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/k_line.html" afterPath="$PROJECT_DIR$/k_line.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,8 +20,8 @@
       <file leaf-file-name="k_line.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/k_line.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="244" column="34" lean-forward="true" selection-start-line="244" selection-start-column="34" selection-end-line="244" selection-end-column="34" />
+            <state relative-caret-position="2200">
+              <caret line="247" column="38" lean-forward="true" selection-start-line="247" selection-start-column="38" selection-end-line="247" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -34,8 +32,8 @@
       <file leaf-file-name="svg.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/svg.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+            <state relative-caret-position="285">
+              <caret line="152" column="32" lean-forward="true" selection-start-line="152" selection-start-column="32" selection-end-line="152" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -304,12 +302,12 @@
       <workItem from="1496893057025" duration="1675000" />
       <workItem from="1496978442124" duration="203000" />
       <workItem from="1497004712366" duration="80000" />
-      <workItem from="1497080692392" duration="741000" />
+      <workItem from="1497080692392" duration="1541000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77002000" />
+    <option name="totallyTimeSpent" value="77802000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="845" extended-state="6" />
@@ -721,8 +719,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/k_line.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="244" column="34" lean-forward="true" selection-start-line="244" selection-start-column="34" selection-end-line="244" selection-end-column="34" />
+        <state relative-caret-position="2200">
+          <caret line="247" column="38" lean-forward="true" selection-start-line="247" selection-start-column="38" selection-end-line="247" selection-end-column="38" />
           <folding>
             <element signature="n#style#0;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -731,8 +729,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/svg.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+        <state relative-caret-position="285">
+          <caret line="152" column="32" lean-forward="true" selection-start-line="152" selection-start-column="32" selection-end-line="152" selection-end-column="32" />
           <folding />
         </state>
       </provider>
