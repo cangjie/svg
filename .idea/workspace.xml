@@ -22,8 +22,8 @@
       <file leaf-file-name="k_line.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/k_line.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+            <state relative-caret-position="398">
+              <caret line="244" column="34" lean-forward="true" selection-start-line="244" selection-start-column="34" selection-end-line="244" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -34,8 +34,8 @@
       <file leaf-file-name="svg.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/svg.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="106" column="91" lean-forward="false" selection-start-line="106" selection-start-column="91" selection-end-line="106" selection-end-column="91" />
+            <state relative-caret-position="251">
+              <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -95,6 +95,10 @@
       <find>show_price_date</find>
       <find>hide_hi</find>
       <find>gold_line_max_idx</find>
+      <find>gold_line_min_idx</find>
+      <find>ready_draw</find>
+      <find>hide_high_light_point_2</find>
+      <find>gold</find>
     </findStrings>
     <replaceStrings>
       <replace>2017-\d-\d+ 9</replace>
@@ -148,6 +152,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -176,7 +181,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -296,12 +300,16 @@
       <workItem from="1496455652084" duration="220000" />
       <workItem from="1496647619865" duration="4249000" />
       <workItem from="1496728939127" duration="10710000" />
-      <workItem from="1496805590766" duration="6755000" />
+      <workItem from="1496805590766" duration="9736000" />
+      <workItem from="1496893057025" duration="1675000" />
+      <workItem from="1496978442124" duration="203000" />
+      <workItem from="1497004712366" duration="80000" />
+      <workItem from="1497080692392" duration="741000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71322000" />
+    <option name="totallyTimeSpent" value="77002000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="845" extended-state="6" />
@@ -713,8 +721,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/k_line.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+        <state relative-caret-position="398">
+          <caret line="244" column="34" lean-forward="true" selection-start-line="244" selection-start-column="34" selection-end-line="244" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#svg#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -723,8 +731,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/svg.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="106" column="91" lean-forward="false" selection-start-line="106" selection-start-column="91" selection-end-line="106" selection-end-column="91" />
+        <state relative-caret-position="251">
+          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
           <folding />
         </state>
       </provider>

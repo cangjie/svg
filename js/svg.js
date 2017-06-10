@@ -18,12 +18,14 @@ function createRecNode(id, x, y, width, height, fill_color, opacity) {
     return node;
 }
 
-function createLatitudeLine(id, x, y, length, thick, color) {
-
-}
-
-function createLongitudeLine(id, x, y, length, thick, color) {
-
+function createPolyLine(id, points_array, thick, color) {
+    var node = document.createElementNS(xmlns, "polyline");
+    node.setAttributeNS(null, "id", id);
+    node.setAttributeNS(null, "points", points_array);
+    var styleAttr = document.createAttribute("style");
+    styleAttr.nodeValue = "fill:white; stroke:" + color + "; stroke-width:" + thick;
+    node.setAttributeNode(styleAttr);
+    return node;
 }
 
 function createLine(id, x1, y1, x2, y2, thick, color) {
@@ -64,14 +66,15 @@ function createTextBox(id, x, y, text, font_size, color) {
     return node;
 }
 
-var gold_line_max_idx = 0;
-var gold_line_min_idx = 0;
+var gold_line_max_idx = -1;
+var gold_line_min_idx = -1;
 var gold_line_max_price = 0;
 var gold_line_min_price = 0;
 var gold_line_current_high_light_position = "";
 var gold_line_current_idx = 0;
+var gold_line_another_idx = -1;
 function draw_gold_line(evt) {
-    if (gold_line_max_idx == 0 && gold_line_min_idx == 0) {
+    if (gold_line_max_idx == -1 && gold_line_min_idx == -1) {
         gold_line_current_idx = get_item_index(evt.clientX);
         var temp_price = get_price(evt.clientY);
         var temp_gold_line_max_price = parseFloat(stock_data.items[gold_line_current_idx].item_highest_price);
@@ -88,24 +91,26 @@ function draw_gold_line(evt) {
     else{
         var current_price = get_price(evt.clientY);
         var current_idx = get_item_index(evt.clientX);
-        if (gold_line_max_idx > 0) {
+        if (gold_line_max_idx > -1) {
             if (current_price < gold_line_max_price){
-                display_gold_line(0, gold_line_max_idx, evt);
+                display_gold_line(-1, gold_line_max_idx, evt);
                 if (Math.abs(get_y_value(stock_data.items[current_idx].item_highest_price) - evt.clientY) < 100
                     && stock_data.items[current_idx].item_lowest_price < gold_line_max_price) {
                     show_high_light_point_2(current_idx, stock_data.items[current_idx].item_lowest_price);
+                    gold_line_another_idx = current_idx;
                 }
                 else{
                     hide_high_light_point_2();
                 }
             }
         }
-        if (gold_line_min_idx > 0) {
+        if (gold_line_min_idx > -1) {
             if (current_price > gold_line_min_price){
-                display_gold_line(gold_line_min_idx, 0, evt);
+                display_gold_line(gold_line_min_idx, -1, evt);
                 if (Math.abs(get_y_value(stock_data.items[current_idx].item_highest_price) - evt.clientY) < 100
-                    && stock_data.items[current_idx].item_highest_price > gold_line_min_idx) {
+                    && stock_data.items[current_idx].item_highest_price > gold_line_min_price) {
                     show_high_light_point_2(current_idx, stock_data.items[current_idx].item_highest_price);
+                    gold_line_another_idx = current_idx;
                 }
                 else {
                     hide_high_light_point_2();
@@ -118,11 +123,11 @@ function display_gold_line(min_idx, max_idx, evt) {
     hide_gold_line();
     var max_price = 0;
     var min_price = 0;
-    if (min_idx == 0) {
+    if (min_idx == -1) {
         max_price = stock_data.items[max_idx].item_highest_price;
         min_price = get_price(evt.clientY);
     }
-    if (max_idx == 0) {
+    if (max_idx == -1) {
         min_price = stock_data.items[min_idx].item_lowest_price;
         max_price = get_price(evt.clientY);
     }
@@ -193,6 +198,7 @@ function show_high_light_point_2(idx, price) {
 }
 
 function hide_high_light_point_2() {
+    gold_line_another_idx = -1;
     var high_light_point = document.getElementById("high_light_point_2");
     if (high_light_point!=null) {
         svg.removeChild(high_light_point);
@@ -201,7 +207,6 @@ function hide_high_light_point_2() {
 function show_price_date(evt) {
     var mouse_x = evt.clientX;
     var mouse_y = evt.clientY-10;
-
     var price_box = document.getElementById("price_box");
     var date_box = document.getElementById("date_box");
     if (price_box != null) {
@@ -213,12 +218,8 @@ function show_price_date(evt) {
     if (date_box != null) {
         svg.removeChild(date_box);
     }
-
     date_box = createTextBox("date_box", mouse_x , svg_height, stock_data.items[get_item_index(mouse_x)].item_start_time.toString().split(' ')[0], 13, "rgb(0,0,255)");
     svg.appendChild(date_box);
-
-
-
 }
 function hide_price_date(evt) {
     var price_box = document.getElementById("price_box");

@@ -126,6 +126,28 @@
             draw_k_line(i, stock_data.items[i].item_start_price, stock_data.items[i].item_end_price,
                 stock_data.items[i].item_highest_price, stock_data.items[i].item_lowest_price);
         }
+
+        //var poly_line = createPolyLine("poly_line", "0,0 100,100 200,200 300,300", "1", "green");
+        //svg.appendChild(poly_line);
+        draw_3_3_line();
+    }
+    function draw_3_3_line() {
+        var points_array = "";
+        var prev_x = -1;
+        var prev_y = -1;
+        for(i = stock_data_end_index; i >= stock_data_start_index; i--) {
+            if (i - 6 >= 0 ) {
+                var x = get_x_value(i);
+                var avg_price = (parseFloat(stock_data.items[i-6].item_end_price) +  parseFloat(stock_data.items[i-5].item_end_price)
+                    + parseFloat(stock_data.items[i-4].item_end_price))/3;
+                if (prev_x != -1 && prev_y != -1 ) {
+                    var line_3_3 = createLine("line_3_3_" + i.toString(), prev_x, prev_y, x, get_y_value(avg_price), "1", "green");
+                    svg.appendChild(line_3_3);
+                }
+                prev_x = x;
+                prev_y = get_y_value(avg_price);
+            }
+        }
     }
     function get_y_value(price) {
         return parseInt(k_line_map_y + k_line_map_height * (stock_max_price - price)/(stock_max_price - stock_min_price));
@@ -211,17 +233,26 @@
     }
     function mouse_up(evt) {
         if (draw_state) {
+
+            if (gold_line_max_idx == -1) {
+                gold_line_max_idx = gold_line_another_idx;
+            }
+            if (gold_line_min_idx == -1){
+                gold_line_min_idx = gold_line_another_idx;
+            }
+            hide_gold_line();
+            if (gold_line_min_idx != gold_line_another_idx || gold_line_max_idx != gold_line_another_idx) {
+                display_gold_line_between_prices(stock_data.items[gold_line_min_idx].item_lowest_price,
+                    stock_data.items[gold_line_max_idx].item_highest_price);
+            }
             hide_high_light_point_1();
             hide_high_light_point_2();
-            if (gold_line_max_idx == -1 || gold_line_min_idx == -1) {
-                gold_line_max_idx = -1;
-                gold_line_min_idx = -1;
-                hide_gold_line();
-            }
-            if (gold_line_max_idx != gold_line_min_idx && gold_line_max_idx >=0 && gold_line_min_idx >=0 ) {
-
-            }
-
+            draw_state = false;
+            gold_line_another_idx = -1;
+            gold_line_max_idx = -1;
+            gold_line_min_idx = -1;
+            var btn_draw = document.getElementById("btn_draw");
+            btn_draw.style.backgroundColor = "white";
         }
     }
 </script>
